@@ -1,0 +1,14 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: labelpod
+  labels:
+    state: dev
+    team: teamX
+spec:
+  containers: 
+   - name: c01
+     image: ubuntu
+     command: ["/bin/bash", "-c", "while true; do echo welocme to world; sleep 10; done"]
+
+
