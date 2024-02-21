@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: mydeamonset
+  labels:
+    app: test
+spec:
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      name: mydeamonsetpod
+      labels:
+        app: test
+    spec:
+      containers:
+        - name: mydeamonset
+          image: lerndevops/tomcat:8.5.47
+          ports:
+            - containerPort: 8080
