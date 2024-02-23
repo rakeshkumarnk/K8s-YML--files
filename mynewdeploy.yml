@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+metadata:
+  name: api-deployment
+  labels:
+    api: api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      api: api
+  template:
+    metadata:
+      labels:
+        api: api
+    spec:
+      containers:
+        - name: api
+          image: eddiehale/hellonodeapi
+          ports:
+            - containerPort: 3000

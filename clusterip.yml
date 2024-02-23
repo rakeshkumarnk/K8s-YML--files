@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: clusteripservice
+spec:
+  ports:
+   - port: 8892
+     targetPort: 80
+  selector:
+    name: johny
+  type: ClusterIP
+     
