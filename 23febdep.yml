@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: py-app
   labels:
-    api: api
+    app: npapp
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      api: api
+      app: npapp
   template:
     metadata:
       labels:
-        api: api
+        app: npapp
     spec:
       containers:
-        - name: api
-          image: nginx
+        - name: myapp-con
+          image: httpd
           ports:
-            - containerPort: 80
+            - containerPort: 3000

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: api-deployment
-  labels:
-    api: api
+  name: database
 spec:
-  replicas: 5
+  replicas: 8
+  serviceName: redis
   selector:
     matchLabels:
-      api: api
+      app: redis
   template:
     metadata:
       labels:
-        api: api
+        app: redis
     spec:
       containers:
-        - name: api
-          image: nginx
+        - name: redis-con
+          image: redis:latest
           ports:
             - containerPort: 80
+

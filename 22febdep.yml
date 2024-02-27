@@ -1,21 +1,20 @@
+kind: Deployment 
 apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: api-deployment
-  labels:
-    api: api
+metadata: 
+ name: mydeployment
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
-      api: api
+      name: johny
   template:
     metadata:
+      name: test1
       labels:
-        api: api
+        name: johny
     spec:
       containers:
-        - name: api
-          image: nginx
+        - name: c001
+          image: httpd
           ports:
             - containerPort: 80
